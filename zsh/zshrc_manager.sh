@@ -14,7 +14,7 @@ fi
 echo "Checking for updates."
 ({cd ~/dotfiles && git fetch -q} &> /dev/null)
  
-if [ $({cd ~/dotfiles} &> /dev/null && git rev-list HEAD...origin/master | wc -l) = 0 ]
+if [ $({cd ~/dotfiles} &> /dev/null && git rev-list HEAD...origin/main | wc -l) = 0 ]
 then
 	echo "Already up to date."
 else
