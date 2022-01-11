@@ -6,11 +6,13 @@ setopt PROMPT_SUBST
 
 set_prompt() {
 
+	#color codes to changes plugin colors: blue, red, magenta, green, yellow, red, cyan
+
 	# [
 	PS1="["
 
 	# Path: http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-	PS1+="%{$fg_bold[blue]%}${PWD/#$HOME/~}%{$reset_color%}"
+	PS1+="%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
 
 	# Status Code
 	PS1+='%(?.., %{$fg[red]%}%?%{$reset_color%})'
@@ -18,7 +20,7 @@ set_prompt() {
  	# Git
  	if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q 'true' ; then
  		PS1+=', '
- 		PS1+="%{$fg[magenta]%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%{$reset_color%}"
+ 		PS1+="%{$fg_bold[blue]%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%{$reset_color%}"
 		STATUS=$(git status --short | wc -l)
 		if [ $STATUS -gt 0 ]; then 
  			PS1+="%{$fg[green]%}+$(echo $STATUS | awk '{$1=$1};1')%{$reset_color%}"
@@ -29,7 +31,7 @@ set_prompt() {
 	# Timer: http://stackoverflow.com/questions/2704635/is-there-a-way-to-find-the-running-time-of-the-last-executed-command-in-the-shel
 	if [[ $_elapsed[-1] -ne 0 ]]; then
 		PS1+=', '
-		PS1+="%{$fg[yellow]%}$_elapsed[-1]s%{$reset_color%}"
+		PS1+="%{$fg[magenta]%}$_elapsed[-1]s%{$reset_color%}"
 	fi
 
 	# PID
