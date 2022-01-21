@@ -13,6 +13,11 @@ autoload -Uz compinit && compinit
 
 # Define PATH
 export PATH=~/.pyenv/shims:$PATH
+export PATH=$PATH:~/go/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # zsh tab completion
 zstyle ':completion:*' menu select
@@ -34,3 +39,4 @@ source ~/dotfiles/zsh/keybindings.sh
 zvm_after_init_commands+=('source ~/dotfiles/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh')
 # zvm_after_init_commands+=('source /usr/share/fzf/key-bindings.zsh')
 # zvm_after_init_commands+=('source /usr/share/fzf/completion.zsh')
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
